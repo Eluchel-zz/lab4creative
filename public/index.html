@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/customScripts.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="utf-8">
+    <title>Random Encounter Generator</title>
+</head>
+<body>
+<div id='app' ng-app='app' ng-controller='mainCtrl'>
+    <h1>Random Encounter Generator</h1>
+    <div class="mainContent">
+        <form>
+            <h4>Select your environment and encounter chance</h4>
+            <select id="environmentSelect" class="list selectBox" ng-model="enc.environment">
+                <option ng-repeat='e in environments' ng-value="{{e.name}}">{{e.name}}</option>
+            </select>
+            <select id="situationSelect" class="list selectBox" ng-model="enc.situation">
+                <option ng-repeat='s in situations' ng-value="{{s.name}}">{{s.name}}</option>
+            </select>
+            <button id="generate" ng-click="generateEncounter()">Generate Encounter</button>
+        </form>
+        <p id="result">{{resultString}}</p>
+    </div>
+</div>
+</body>
+</html>
